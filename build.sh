@@ -37,10 +37,9 @@ OUT_DIR="${HOME}/repos/Kangaroo_Installer"
 make "m7_defconfig"
 make -j2
 
-# Copy zImage & modules
+# Copy zImage
+echo
 find -name 'zImage' -exec cp -v {} $OUT_DIR \;
-rm `echo $OUT_DIR/system/lib/modules"/*"`
-find -name '*.ko' -exec cp -v {} $OUT_DIR/system/lib/modules \;
 
 DATE_END=$(date +"%s")
 DIFF=$(($DATE_END - $DATE_START))
